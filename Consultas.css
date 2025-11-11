@@ -1,0 +1,123 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1, h2 {
+    color: #333;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+}
+
+/* --- Cuadrícula para las tarjetas de películas --- */
+.grid-peliculas {
+    display: grid;
+    /* Crea columnas automáticas que miden al menos 220px */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+/* --- Estilo de la tarjeta ("cuadro") --- */
+.pelicula-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Asegura que la imagen no se salga */
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column; /* Organiza el contenido verticalmente */
+}
+
+.pelicula-card:hover {
+    transform: translateY(-5px); /* Efecto al pasar el mouse */
+}
+
+/* Estilo de la imagen de la película */
+.pelicula-card img {
+    width: 100%;
+    height: 330px; /* Altura fija para la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+    background-color: #eee; /* Color de fondo mientras carga */
+}
+
+/* Contenido de texto de la tarjeta */
+.pelicula-info {
+    padding: 15px;
+    flex-grow: 1; /* Hace que esta sección crezca para llenar el espacio */
+}
+
+.pelicula-info h3 {
+    font-size: 1.1rem;
+    margin: 0 0 10px 0;
+    color: #0056b3;
+}
+
+.pelicula-info p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* --- Magia para las Estrellas (INTERACTIVO) --- */
+.estrellas-info {
+    /* Contenedor para alinear la etiqueta, las estrellas y el número */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre "Calificación:", las estrellas y (9.0) */
+}
+
+.estrellas-interactivas {
+    display: inline-block;
+    line-height: 1;
+}
+
+.estrellas-interactivas span {
+    font-size: 1.3rem; /* Tamaño de la estrella */
+    color: #e0e0e0;     /* Color de estrella vacía */
+    cursor: pointer;      /* El mouse se vuelve una "manita" */
+    transition: color 0.1s;
+}
+
+/* Colorea las estrellas de forma permanente cuando 
+   JavaScript les añade la clase "filled" */
+.estrellas-interactivas span.filled {
+    color: #ffc107; /* Color de estrella llena */
+}
+
+/* Efecto "hover" (pasar el mouse por encima)
+   Colorea la estrella y todas las anteriores */
+.estrellas-interactivas:hover span {
+    color: #fdd835; /* Un dorado más suave para el hover */
+}
+
+.estrellas-interactivas span:hover ~ span {
+    /* Pone grises de nuevo las estrellas que están *después* de la que 
+       tienes con el mouse, creando el efecto de "seleccionar hasta aquí" */
+    color: #e0e0e0;
+}
+
+/* --- Contenedor de Promedios --- */
+.promedios-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.promedio-item {
+    background-color: #e3f2fd;
+    border: 1px solid #007BFF;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+.promedio-item span {
+    font-weight: normal;
+    color: #333;
+}
